@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project name="GridMonitor" default="build" basedir=".">
+  <description>Builds GridMonitor Host Tools</description>
+  <property name="debug" value="false" />
+  <property name="lib.dir" value="../../lib"/>
+  <property name="build.dir" value="build" />
+  <property name="src.dir" value="src" />
+
+  <target name="clean" description="Remove build directory">
+    <delete dir="${build.dir}" failonerror="true"/>
+  </target>
+
+  <target name="build" description="Build GridMonitor Host Tools">
+    <mkdir dir="${build.dir}" failonerror="true"/>
+    <copy todir="${build.dir}" failonerror="true">
+      <fileset basedir="${lib.dir}">
+        <include name="Brunet.dll"/>
+        <include name="Brunet.IPAddresses.dll"/>
+      </fileset>
+    </copy>
+
+    <csc target="exe" output="${build.dir}/GridMonitor.exe">
+      <sources failonempty="true">
+        <include name="*cs"/>
+      </sources>
+      <references basedir="${build.dir}">
+        <include name="Brunet.dll"/>
+        <include name="Brunet.IPAddresses.dll"/>
+        <include name="System.Data.dll"/>
+        <include name="System.Windows.Forms.dll"/>
+        <include name="System.Drawing.dll"/>
+      </references>
+      <resources>
+        <include name="*resources"/>
+      </resources>
+    </csc>
+
+    <copy todir="${lib.dir}" failonerror="true">
+      <fileset basedir="${build.dir}">
+        <include name="GridMonitor.exe"/>
+      </fileset>
+    </copy>
+  </target>
+</project>

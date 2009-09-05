@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="GridMonitor" default="build" basedir=".">
+  <description>Builds GridMonitor</description>
+  <property name="debug" value="false" />
+  <property name="lib.dir" value="../../lib"/>
+  <property name="build.dir" value="build" />
+
+  <target name="clean" description="Remove build directory">
+    <delete dir="${build.dir}" failonerror="true"/>
+  </target>
+
+  <target name="build" description="Build GridMonitor tools">
+    <mkdir dir="${build.dir}" failonerror="true"/>
+    <copy todir="${build.dir}" failonerror="true">
+      <fileset basedir="${lib.dir}">
+        <include name="Brunet.dll"/>
+      </fileset>
+    </copy>
+
+    <csc target="library" output="${build.dir}/Brunet.Inject.HostActivity.dll">
+      <sources failonempty="true">
+        <include name="*cs"/>
+      </sources>
+      <references basedir="${build.dir}">
+        <include name="Brunet.dll"/>
+      </references>
+    </csc>
+
+    <copy todir="${lib.dir}" failonerror="true">
+      <fileset basedir="${build.dir}">
+        <include name="Brunet.Inject.HostActivity.dll"/>
+      </fileset>
+    </copy>
+  </target>
+</project>

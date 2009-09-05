@@ -1,0 +1,6 @@
+This repository contains utilities for the Grid-Appliance, such as tools in the appliance, host applications, and admin applications.
+- GridMonitorHost runs on a VM Host and when there is user activity contacts the GridMonitorGuest ...
+- GridMonitorGuest runs in a VM Appliance and when activated causes condor to go into owner state by touching a condor monitored file
+- Locator finds all VMs that are executing in multicast range and reports back their addresses.  By specifying an input parameter, it will only run the multicast on local VMware Interfaces, finding NAT and Host only devices.
+
+To build, obtain a Brunet.dll and Brunet.IPAddresses.dll and place into /lib, then in / type nant

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="Grid Appliance Tools" default="build" basedir=".">
+  <description>Builds Grid-Appliance Tools</description>
+  <target name="build" description="Build GridMonitor tools">
+    <nant buildfile="src/GridMonitorGuest/default.build" />
+    <nant buildfile="src/GridMonitorHost/default.build" />
+    <nant buildfile="src/Locator/default.build" />
+  </target>
+
+  <target name="clean" description="Build GridMonitor tools">
+    <nant buildfile="src/GridMonitorGuest/default.build" target="clean"/>
+    <nant buildfile="src/GridMonitorHost/default.build" target="clean"/>
+    <nant buildfile="src/Locator/default.build" target="clean"/>
+  </target>
+</project>
