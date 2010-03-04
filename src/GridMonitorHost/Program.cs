@@ -222,7 +222,6 @@ namespace gridtool {
           return;
         }
       }
-      Console.WriteLine("Here");
 
       // This is a nifty little utility that utillizes ifconfig (or ipconfig in Windows)
       ArrayList to_send = new ArrayList();
