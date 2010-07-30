@@ -1,5 +1,7 @@
 using Brunet;
 using Brunet.Applications;
+using Brunet.Concurrent;
+using Brunet.Messaging;
 using System;
 using System.Collections;
 using System.Net;

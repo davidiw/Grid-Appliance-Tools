@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Collections;
 using System.Windows.Forms;
 using Brunet;
+using Brunet.Concurrent;
+using Brunet.Messaging;
 using Brunet.Applications;
 using System.Net;
 using System.Runtime.InteropServices;
